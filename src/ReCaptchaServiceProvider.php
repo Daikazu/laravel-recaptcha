@@ -26,9 +26,11 @@ class ReCaptchaServiceProvider extends ServiceProvider
             return $app['recaptcha']->verifyResponse($value, $app['request']->getClientIp());
         });
 
+
+
         if ($app->bound('form')) {
             $app['form']->macro('recaptcha', function ($attributes = []) use ($app) {
-                return $app['recaptcha']->display($attributes, $app->getLocale());
+                return $app['recaptcha']->displayWidet($attributes, $app->getLocale());
             });
         }
 
