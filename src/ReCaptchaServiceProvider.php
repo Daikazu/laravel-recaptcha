@@ -22,10 +22,9 @@ class ReCaptchaServiceProvider extends ServiceProvider
 
         $this->bootConfig();
 
-        $app['validator']->extends('recaptcha', function ($attributes, $value) use ($app) {
+        $app['validator']->extend('recaptcha', function ($attributes, $value) use ($app) {
             return $app['recaptcha']->verifyResponse($value, $app['request']->getClientIp());
         });
-
 
 
         if ($app->bound('form')) {
