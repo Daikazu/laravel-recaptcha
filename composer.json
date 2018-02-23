@@ -1,0 +1,40 @@
+{
+  "name": "daikazu/laravel-recaptcha",
+  "description": "reCAPTCHA v2 and Invisible reCAPTCHA for laravel",
+  "keywords": [
+    "recaptcha",
+    "laravel-recaptcha",
+    "captcha",
+    "laravel"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mike Wall",
+      "email": "daikazu@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.5",
+    "illuminate/support": "5.5.*|5.6.*",
+    "guzzlehttp/guzzle": "6.3.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Daikazu\\Recaptcha\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Daikazu\\Recaptcha\\RecaptchaServiceprovider"
+      ],
+      "aliases": {
+        "Recaptcha": "Daikazu\\Recaptcha\\RecaptchaFacade"
+      }
+    }
+  }
+}
