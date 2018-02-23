@@ -33,7 +33,7 @@
         "Daikazu\\LaravelRecaptcha\\ReCaptchaServiceProvider"
       ],
       "aliases": {
-        "Recaptcha": "Daikazu\\LaravelRecaptcha\\Facades\\ReCaptchaFacade"
+        "ReCaptcha": "Daikazu\\LaravelRecaptcha\\Facades\\ReCaptchaFacade"
       }
     }
   }
