@@ -53,7 +53,7 @@ class ReCaptchaServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('recaptcha', function ($app) {
-            return new Recaptcha(
+            return new ReCaptcha(
                 $app['config']['recaptcha.secret'],
                 $app['config']['recaptcha.sitekey'],
                 $app['config']['recaptcha.options']

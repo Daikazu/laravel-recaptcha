@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class Recaptcha
+class ReCaptcha
 {
     const CLIENT_API = 'https://www.google.com/recaptcha/api.js';
     const VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';

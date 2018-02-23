@@ -30,10 +30,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Daikazu\\Recaptcha\\RecaptchaServiceProvider"
+        "Daikazu\\Recaptcha\\ReCaptchaServiceProvider"
       ],
       "aliases": {
-        "Recaptcha": "Daikazu\\Recaptcha\\RecaptchaFacade"
+        "Recaptcha": "Daikazu\\ReCaptcha\\RecaptchaFacade"
       }
     }
   }
