@@ -22,9 +22,11 @@ class ReCaptcha
 
     public function __construct($secret, $siteKey, $options = [])
     {
+
         $this->secret = $secret;
-        $this->sitekey = $siteKey;
+        $this->siteKey = $siteKey;
         $this->http = new Client($options);
+
 
     }
 
@@ -68,8 +70,7 @@ class ReCaptcha
             // cache it to make it work in case we want to verify it multiple times.
             $this->verifiedResponses[] = $response;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
