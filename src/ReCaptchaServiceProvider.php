@@ -30,7 +30,7 @@ class ReCaptchaServiceProvider extends ServiceProvider
 
         if ($app->bound('form')) {
             $app['form']->macro('recaptcha', function ($attributes = []) use ($app) {
-                return $app['recaptcha']->displayWidet($attributes, $app->getLocale());
+                return $app['recaptcha']->displayWidget($attributes, $app->getLocale());
             });
         }
 
