@@ -4,7 +4,7 @@ namespace Daikazu\LaravelRecaptcha\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class RecaptchaFacade extends Facade
+class ReCaptchaFacade extends Facade
 {
     /**
      * Get Registered name of component
