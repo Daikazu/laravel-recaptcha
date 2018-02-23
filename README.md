@@ -19,7 +19,8 @@ composer require daikazu/laravel-recaptcha
 
 Public Config File `recaptcha.php`
 ```ssh
-php artisan vendor:publish --provider="Daikazu\Recaptcha\RecaptchaServiceProvider"
+php artisan vendor:publish --provider="Daikazu\LaravelRecaptcha\ReCaptchaServiceProvider"
+
 ```
 Add your `RECAPTCHA_SECRET` and `RECAPTCHA_SITEKEY` into your `.env` file:
 
