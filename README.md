@@ -41,9 +41,7 @@ With [language support](https://developers.google.com/recaptcha/docs/language) o
  {!! NoCaptcha::renderJs('fr', true, 'recaptchaCallback') !!}
 ```
 
-#### Display reCAPTCHA V2
-
-Default widget :
+### Display reCAPTCHA V2
 
 ```php
 {!! NoCaptcha::displayWidget() !!}
@@ -55,7 +53,7 @@ With [custom attributes](https://developers.google.com/recaptcha/docs/display#re
 {!! NoCaptcha::displayWidget(['data-theme' => 'dark']) !!}
 ```
 
-#### Display Invisible reCAPTCHA button
+### Display Invisible reCAPTCHA button
 
 ```php
 {!! NoCaptcha::displayButton( 'Button Text', ['data-callback' => 'onFormSubmit', 'class' => 'button is-info']) !!}
