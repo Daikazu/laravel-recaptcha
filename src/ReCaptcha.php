@@ -22,12 +22,9 @@ class ReCaptcha
 
     public function __construct($secret, $siteKey, $options = [])
     {
-
         $this->secret = $secret;
         $this->siteKey = $siteKey;
         $this->http = new Client($options);
-
-
     }
 
 
@@ -38,17 +35,24 @@ class ReCaptcha
 
     }
 
-    public function displayButton($text = '', $callback, $attributes = [])
+    public function displayButton($buttonText = '', $attributes = [])
     {
         $attributes['data-sitekey'] = $this->siteKey;
-        $attributes['data-callback'] = $callback;
-        return '<button class="g-recaptcha"' . $this->buildAttributes($attributes) . '>' . $text . '</button> ';
+
+        $classes = 'g-recaptcha';
+        if (isset($attributes['class'])) {
+            $classes .= ' ' . $attributes['class'];
+
+            unset($attributes['class']);
+        }
+
+        return '<button class="' . $classes . '"' . $this->buildAttributes($attributes) . '>' . $buttonText . '</button>';
     }
 
 
     public function renderJs($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
     {
-        return '<script src="' . $this->getJsLink($lang, $callback, $onLoadClass) . '" async defer></script>' . "\n";
+        return '<script src="' . $this->getJsLink($lang, $callback, $onLoadClass) . '" async defer></script>';
     }
 
     public function verifyResponse($response, $clientIp = null)
