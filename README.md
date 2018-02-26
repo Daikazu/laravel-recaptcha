@@ -1,5 +1,4 @@
 # Laravel reCAPTCHA
-===
 ## reCAPTCHA v2 and Invisible reCAPTCHA for Laravel
 Easily add Google's V2 and Invisable reCaptcha to your forms;
 
