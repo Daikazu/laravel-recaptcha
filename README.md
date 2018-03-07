@@ -32,31 +32,31 @@ RECAPTCHA_SITEKEY=site-key
 With default options :
 
 ```php
- {!! NoCaptcha::renderJs() !!}
+ {!! ReCaptcha::renderJs() !!}
 ```
 
 With [language support](https://developers.google.com/recaptcha/docs/language) or [onloadCallback](https://developers.google.com/recaptcha/docs/display#explicit_render) option :
 
 ```php
- {!! NoCaptcha::renderJs('fr', true, 'recaptchaCallback') !!}
+ {!! ReCaptcha::renderJs('fr', true, 'recaptchaCallback') !!}
 ```
 
 ### Display reCAPTCHA V2
 
 ```php
-{!! NoCaptcha::displayWidget() !!}
+{!! ReCaptcha::displayWidget() !!}
 ```
 
 With [custom attributes](https://developers.google.com/recaptcha/docs/display#render_param) (theme, size, callback ...) :
 
 ```php
-{!! NoCaptcha::displayWidget(['data-theme' => 'dark']) !!}
+{!! ReCaptcha::displayWidget(['data-theme' => 'dark']) !!}
 ```
 
 ### Display Invisible reCAPTCHA button
 
 ```php
-{!! NoCaptcha::displayButton( 'Button Text', ['data-callback' => 'onFormSubmit', 'class' => 'button is-info']) !!}
+{!! ReCaptcha::displayButton( 'Button Text', ['data-callback' => 'onFormSubmit', 'class' => 'button is-info']) !!}
 ```
 
 ### Validation
