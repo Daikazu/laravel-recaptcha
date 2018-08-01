@@ -8,12 +8,14 @@
     "laravel"
   ],
   "license": "MIT",
+
   "authors": [
     {
       "name": "Mike Wall",
       "email": "daikazu@gmail.com"
     }
   ],
+  "minimum-stability": "stable",
   "require": {
     "php": ">=5.5.5",
     "illuminate/support": "5.5.*|5.6.*",

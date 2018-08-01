@@ -28,6 +28,16 @@ class ReCaptcha
     }
 
 
+    /**
+     * Helper function to retrieve ReCaptcha site key
+     * @return mixed
+     */
+    public function getSiteKey()
+    {
+        return $this->siteKey;
+    }
+
+
     public function displayWidget($attributes = [])
     {
         $attributes['data-sitekey'] = $this->siteKey;
