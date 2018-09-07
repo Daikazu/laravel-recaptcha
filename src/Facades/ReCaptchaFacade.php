@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 class ReCaptchaFacade extends Facade
 {
     /**
-     * Get Registered name of component
+     * Get Registered name of component.
      *
      * @return string
      */

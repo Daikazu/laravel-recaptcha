@@ -6,10 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class ReCaptchaServiceProvider extends ServiceProvider
 {
-
-
     protected $defer = false;
-
 
     /**
      * Bootstrap services.
@@ -26,26 +23,22 @@ class ReCaptchaServiceProvider extends ServiceProvider
             return $app['recaptcha']->verifyResponse($value, $app['request']->getClientIp());
         });
 
-
         if ($app->bound('form')) {
             $app['form']->macro('recaptcha', function ($attributes = []) use ($app) {
                 return $app['recaptcha']->displayWidget($attributes, $app->getLocale());
             });
         }
-
     }
-
 
     protected function bootConfig()
     {
-        $path = __DIR__ . '/config/recaptcha.php';
+        $path = __DIR__.'/config/recaptcha.php';
 
         $this->mergeConfigFrom($path, 'recaptcha');
         if (function_exists('config_path')) {
             $this->publishes([$path => config_path('recaptcha.php')]);
         }
     }
-
 
     /**
      * Register services.
@@ -63,11 +56,8 @@ class ReCaptchaServiceProvider extends ServiceProvider
         });
     }
 
-
     public function provides()
     {
         return ['recaptcha'];
     }
-
-
 }
