@@ -6,7 +6,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class ReCaptcha
 {
     const CLIENT_API = 'https://www.google.com/recaptcha/api.js';
@@ -27,9 +26,9 @@ class ReCaptcha
         $this->http = new Client($options);
     }
 
-
     /**
-     * Helper function to retrieve ReCaptcha site key
+     * Helper function to retrieve ReCaptcha site key.
+     *
      * @return mixed
      */
     public function getSiteKey()
@@ -37,12 +36,11 @@ class ReCaptcha
         return $this->siteKey;
     }
 
-
     public function displayWidget($attributes = [])
     {
         $attributes['data-sitekey'] = $this->siteKey;
-        return '<div class="g-recaptcha"' . $this->buildAttributes($attributes) . '></div>';
 
+        return '<div class="g-recaptcha"'.$this->buildAttributes($attributes).'></div>';
     }
 
     public function displayButton($buttonText = '', $attributes = [])
@@ -51,18 +49,17 @@ class ReCaptcha
 
         $classes = 'g-recaptcha';
         if (isset($attributes['class'])) {
-            $classes .= ' ' . $attributes['class'];
+            $classes .= ' '.$attributes['class'];
 
             unset($attributes['class']);
         }
 
-        return '<button class="' . $classes . '"' . $this->buildAttributes($attributes) . '>' . $buttonText . '</button>';
+        return '<button class="'.$classes.'"'.$this->buildAttributes($attributes).'>'.$buttonText.'</button>';
     }
-
 
     public function renderJs($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
     {
-        return '<script src="' . $this->getJsLink($lang, $callback, $onLoadClass) . '" async defer></script>';
+        return '<script src="'.$this->getJsLink($lang, $callback, $onLoadClass).'" async defer></script>';
     }
 
     public function verifyResponse($response, $clientIp = null)
@@ -83,12 +80,12 @@ class ReCaptcha
             // A response can only be verified once from google, so we need to
             // cache it to make it work in case we want to verify it multiple times.
             $this->verifiedResponses[] = $response;
+
             return true;
         } else {
             return false;
         }
     }
-
 
     public function verifyRequest(Request $request)
     {
@@ -98,14 +95,14 @@ class ReCaptcha
         );
     }
 
-
     private function getJsLink($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
     {
         $client_api = static::CLIENT_API;
         $params = [];
         $callback ? $this->setCallBackParams($params, $onLoadClass) : false;
         $lang ? $params['hl'] = $lang : null;
-        return $client_api . '?' . http_build_query($params);
+
+        return $client_api.'?'.http_build_query($params);
     }
 
     protected function setCallBackParams(&$params, $onLoadClass)
@@ -114,7 +111,6 @@ class ReCaptcha
         $params['onload'] = $onLoadClass;
     }
 
-
     protected function sendRequestVerify(array $query = [])
     {
         try {
@@ -122,23 +118,19 @@ class ReCaptcha
                 'form_params' => $query,
             ]);
         } catch (GuzzleException $e) {
-
         }
+
         return json_decode($response->getBody(), true);
     }
-
 
     protected function buildAttributes($attributes)
     {
         $html = [];
 
         foreach ($attributes as $key => $value) {
-            $html[] = $key . '="' . $value . '"';
+            $html[] = $key.'="'.$value.'"';
         }
 
-        return count($html) ? ' ' . implode(' ', $html) : '';
-
+        return count($html) ? ' '.implode(' ', $html) : '';
     }
-
-
 }
